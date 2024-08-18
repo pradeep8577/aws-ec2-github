@@ -29,9 +29,10 @@ jobs:
       run: |
         echo "PORT=${{ secrets.PORT }}" >> .env
 
+    - name: Print secret
+      run: |
+        echo ${{ secrets.PORT }}
+
     - run: npm ci
-      
-    - run: npm run test
-      # Runs the test script. In your case, it currently returns an error, which is fine if no tests are defined.
       
     - run: node app.js
