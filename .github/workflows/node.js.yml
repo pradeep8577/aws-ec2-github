@@ -32,7 +32,11 @@ jobs:
     - name: Print secret
       run: |
         echo ${{ secrets.PORT }}
+        
+    - name: Debug .env file
+      run: cat .env
 
     - run: npm ci
       
     - run: node app.js
+      continue-on-error: false
